@@ -20,10 +20,14 @@ public class MainObject {
     private By buttonLk = By.xpath(".//p[text()='Личный Кабинет']");
 
     // Кнопка "Конструктор"
-    private By buttonKonstruktor = By.xpath("");
+    private By buttonKonstruktor = By.xpath(".//p[text()='Конструктор']");
+
+    // Переход на главную по лого
+    private By buttonLogo = By.xpath(".//div[@class='AppHeader_header__logo__2D0X2']/a[@href='/']");
 
     // Кнопка "Оформить заказ"
     private By buttonCreateOrder = By.xpath("");
+
 
 
     public MainObject(WebDriver driver) {
@@ -49,5 +53,13 @@ public class MainObject {
         driver.findElement(buttonLk).click();
     }
 
+    // Клик по кнопке "Конструктор"
+    public void clickButtonKonstruktor() {
+        driver.findElement(buttonKonstruktor).click();
+    }
 
+    // Переход на главную по лого
+    public void clickButtonLogo() {
+        driver.findElement(buttonLogo).click();
+    }
 }

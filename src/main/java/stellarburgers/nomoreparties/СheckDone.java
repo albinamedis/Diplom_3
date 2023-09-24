@@ -11,12 +11,21 @@ import static org.junit.Assert.assertTrue;
 
 public class СheckDone {
     private final WebDriver driver;
+
     // проверка открытия окна для входа
     private By textLogIn = By.xpath(".//div[@class='Auth_login__3hAey']/h2[text()='Вход']");
+
     // проверка наличия валидации Некорректный пароль
     private By textNoValid = By.xpath(".//p[text()='Некорректный пароль']");
+
     // проверка текста на кнопке Офрмить заказ
     private By textCreateOrder = By.xpath(".//button[text()='Оформить заказ']");
+
+    // проверка текста "Профиль"
+    private By textProfile = By.xpath(".//a[@href='/account/profile']");
+
+    // проверка текста "Соберите бургер"
+    private By textCreateBurger = By.xpath(".//h1[text()='Соберите бургер']");
 
     public СheckDone(WebDriver driver) {
         this.driver = driver;
@@ -37,6 +46,27 @@ public class СheckDone {
         String actualText = textElement.getText();
         String expectedText = "Оформить заказ";
         assertEquals("Кнопка 'Оформить заказ' не отобразилась", expectedText, actualText);
+    }
+
+    public void proverkaTextLogIn() {
+        WebElement textElement = (WebElement) driver.findElement(textLogIn);
+        String actualText = textElement.getText();
+        String expectedText = "Вход";
+        assertEquals("Текст 'Вход' не отобразился", expectedText, actualText);
+    }
+
+    public void proverkaTextProfile() {
+        WebElement textElement = (WebElement) driver.findElement(textProfile);
+        String actualText = textElement.getText();
+        String expectedText = "Профиль";
+        assertEquals("Текст 'Профиль' не отобразился", expectedText, actualText);
+    }
+
+    public void proverkaCreateBurger() {
+        WebElement textElement = (WebElement) driver.findElement(textCreateBurger);
+        String actualText = textElement.getText();
+        String expectedText = "Соберите бургер";
+        assertEquals("Текст 'Соберите бургер' не отобразился", expectedText, actualText);
     }
 
 }

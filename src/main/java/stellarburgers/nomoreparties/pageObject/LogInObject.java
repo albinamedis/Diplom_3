@@ -10,6 +10,9 @@ public class LogInObject {
     // Страница авторизации
     private String urlLogIn= "https://stellarburgers.nomoreparties.site/login";
 
+    // Страница Профиля
+    private String urlProfile = "https://stellarburgers.nomoreparties.site/account/profile";
+
     // ввод Email на старнице авторизации
     private By vvEmail = By.xpath(".//input[@type='text' and @name='name']");
 
@@ -30,6 +33,12 @@ public class LogInObject {
         driver.get(urlLogIn);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
+
+    public void openProfile() {
+        driver.get(urlProfile);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+
     public void inputLogIn(String email, String password) {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(vvEmail).sendKeys(email);
