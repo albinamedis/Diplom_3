@@ -2,21 +2,18 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import stellarburgers.nomoreparties.PageObject;
+import stellarburgers.nomoreparties.pageObject.LogInObject;
+import stellarburgers.nomoreparties.pageObject.MainObject;
+import stellarburgers.nomoreparties.pageObject.RegObject;
 import stellarburgers.nomoreparties.СheckDone;
 
-import java.util.concurrent.TimeUnit;
-
-import static utils.Utils.randomString;
+import static stellarburgers.nomoreparties.utils.Utils.randomString;
 
 public class RegistrationTest {
 
-    private WebDriver webDriver;
+    private WebDriver driver;
     private String randomName = randomString(8);;
     private String randomEmail = randomString(6)+"@gmail.com";
     private String randomPassword = randomString(12);
@@ -25,39 +22,48 @@ public class RegistrationTest {
 
     @Before
     public void setUp() {
-         webDriver = new ChromeDriver();
-       /* ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        WebDriver driver = new ChromeDriver(options);*/
-        //webDriver = new FirefoxDriver();
+         driver = new ChromeDriver();
     }
 
+    // Проверка успешной регистрации
     @Test
     public void regNewUserDone(){
-        PageObject pageObject = new PageObject(webDriver);
-        pageObject.open();
-        pageObject.clickLogLk();
-        pageObject.clickRegOpenWindow();
-        pageObject.inputReg(randomName, randomEmail, randomPassword);
-        pageObject.clickRegButton();
-        СheckDone checkDone = new СheckDone(webDriver);
+        MainObject mainObject = new MainObject(driver);
+        mainObject.openMain();
+        mainObject.clickLogIn();
+
+        LogInObject logInObject = new LogInObject(driver);
+        logInObject.clickRegOpenWindow();
+
+        RegObject regObject = new RegObject(driver);
+        regObject.inputReg(randomName, randomEmail, randomPassword);
+        regObject.clickButtonReg();
+
+        СheckDone checkDone = new СheckDone(driver);
         Assert.assertTrue("Не открылось окно для входа после регистрации", checkDone.openWindowWithLogIn());
     }
 
+
+    // Проверка отображения ошибки на некорректный пароль
     @Test
     public void regNewUserNotValid(){
-        PageObject pageObject = new PageObject(webDriver);
-        pageObject.open();
-        pageObject.clickLogLk();
-        pageObject.clickRegOpenWindow();
-        pageObject.inputReg(randomName, randomEmail, randomPasswordNoValid);
-        pageObject.clickRegButton();
-        СheckDone checkDone = new СheckDone(webDriver);
+        MainObject mainObject = new MainObject(driver);
+        mainObject.openMain();
+        mainObject.clickLogIn();
+
+        LogInObject logInObject = new LogInObject(driver);
+        logInObject.clickRegOpenWindow();
+
+        RegObject regObject = new RegObject(driver);
+        regObject.inputReg(randomName, randomEmail, randomPasswordNoValid);
+        regObject.clickButtonReg();
+
+        СheckDone checkDone = new СheckDone(driver);
         Assert.assertTrue("Не отобразилась валидация 'Некорректный пароль'", checkDone.textNoValidPassword());
     }
 
     @After
     public void tearDown() {
-        //webDriver.quit();
+        driver.quit();
     }
 }

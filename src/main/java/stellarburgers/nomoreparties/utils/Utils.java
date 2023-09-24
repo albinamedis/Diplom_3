@@ -1,4 +1,4 @@
-package utils;
+package stellarburgers.nomoreparties.utils;
 
 import java.util.Random;
 

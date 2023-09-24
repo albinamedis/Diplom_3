@@ -1,6 +1,4 @@
-package stellarburgers.nomoreparties;
-
-import static utils.Utils.randomString;
+package stellarburgers.nomoreparties.utils;
 
 public class RandomUser {
 

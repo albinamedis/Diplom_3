@@ -13,6 +13,7 @@ public class User {
         this.password = password;
         this.name = name;
     }
+
     public User withEmail (String email) {
         this.email = email;
         return this;
