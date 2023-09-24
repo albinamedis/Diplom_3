@@ -18,7 +18,6 @@ import static stellarburgers.nomoreparties.utils.Utils.randomString;
 public class LogInTest {
 
     private WebDriver driver;
-    СheckDone checkDone = new СheckDone(driver);
     private String randomName = randomString(8);;
     private String randomEmail = randomString(6)+"@gmail.com";
     private String randomPassword = randomString(12);
@@ -51,7 +50,8 @@ public class LogInTest {
         logInObject.inputLogIn(randomEmail, randomPassword);
         logInObject.clickAuth();
 
-       // Assert.assertTrue("Кнопка 'офрмить заказ' не отобразилась", checkDone.textCreateOrder());
+        СheckDone checkDone = new СheckDone(driver);
+        checkDone.proverkaTextCreateOrder();
     }
 
     // Вход по кнопке "Личный кабинет"
@@ -65,7 +65,8 @@ public class LogInTest {
         logInObject.inputLogIn(randomEmail, randomPassword);
         logInObject.clickAuth();
 
-     //   Assert.assertTrue("Кнопка 'офрмить заказ' не отобразилась", checkDone.textCreateOrder());
+        СheckDone checkDone = new СheckDone(driver);
+        checkDone.proverkaTextCreateOrder();
     }
 
     // Вход через кнопку в форме регистрации
@@ -79,7 +80,8 @@ public class LogInTest {
         logInObject.inputLogIn(randomEmail, randomPassword);
         logInObject.clickAuth();
 
-      //  Assert.assertTrue("Кнопка 'офрмить заказ' не отобразилась", checkDone.textCreateOrder());
+        СheckDone checkDone = new СheckDone(driver);
+        checkDone.proverkaTextCreateOrder();
     }
 
     //вход через кнопку в форме восстановления пароля
@@ -93,11 +95,12 @@ public class LogInTest {
         logInObject.inputLogIn(randomEmail, randomPassword);
         logInObject.clickAuth();
 
-      //  Assert.assertTrue("Кнопка 'офрмить заказ' не отобразилась", checkDone.textCreateOrder());
+        СheckDone checkDone = new СheckDone(driver);
+        checkDone.proverkaTextCreateOrder();
     }
 
     @After
     public void tearDown() {
-      //  driver.quit();
+        driver.quit();
     }
 }
