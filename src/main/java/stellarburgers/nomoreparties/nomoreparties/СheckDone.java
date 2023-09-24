@@ -1,4 +1,4 @@
-package stellarburgers.nomoreparties;
+package stellarburgers.nomoreparties.nomoreparties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

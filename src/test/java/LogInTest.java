@@ -1,19 +1,20 @@
+import io.restassured.response.Response;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import stellarburgers.nomoreparties.pageObject.ForgotPasswordObject;
-import stellarburgers.nomoreparties.pageObject.LogInObject;
-import stellarburgers.nomoreparties.pageObject.MainObject;
-import stellarburgers.nomoreparties.pageObject.RegObject;
-import stellarburgers.nomoreparties.СheckDone;
+import stellarburgers.nomoreparties.nomoreparties.User;
+import stellarburgers.nomoreparties.nomoreparties.createUser.CreateUser;
+import stellarburgers.nomoreparties.nomoreparties.pageObject.ForgotPasswordObject;
+import stellarburgers.nomoreparties.nomoreparties.pageObject.LogInObject;
+import stellarburgers.nomoreparties.nomoreparties.pageObject.MainObject;
+import stellarburgers.nomoreparties.nomoreparties.pageObject.RegObject;
+import stellarburgers.nomoreparties.nomoreparties.СheckDone;
 
 import java.util.concurrent.TimeUnit;
 
-import static stellarburgers.nomoreparties.utils.Utils.randomString;
+import static stellarburgers.nomoreparties.nomoreparties.utils.Utils.randomString;
 
 public class LogInTest {
 
@@ -21,6 +22,9 @@ public class LogInTest {
     private String randomName = randomString(8);;
     private String randomEmail = randomString(6)+"@gmail.com";
     private String randomPassword = randomString(12);
+    private String authToken;
+    private CreateUser createUser = new CreateUser();
+
 
 
     @Before
@@ -29,14 +33,12 @@ public class LogInTest {
         options.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(options);*/
         driver = new ChromeDriver();
-        // driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
 
-        // Регистрация пользователя
-        RegObject regObject = new RegObject(driver);
-        regObject.openReg();
-        regObject.inputReg(randomName, randomEmail, randomPassword);
-        regObject.clickButtonReg();
+        // Регистрация пользователя через API
+        User user = new User(randomName,randomEmail,randomPassword);
+        Response response = createUser.create(user);
+        authToken = response.path("accessToken");
     }
 
     // Вход по кнопке "Войти в аккаунт"
@@ -102,5 +104,6 @@ public class LogInTest {
     @After
     public void tearDown() {
         driver.quit();
+        createUser.delete(authToken);
     }
 }

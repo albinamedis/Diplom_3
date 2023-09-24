@@ -4,12 +4,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import stellarburgers.nomoreparties.pageObject.LogInObject;
-import stellarburgers.nomoreparties.pageObject.MainObject;
-import stellarburgers.nomoreparties.pageObject.RegObject;
-import stellarburgers.nomoreparties.СheckDone;
+import stellarburgers.nomoreparties.nomoreparties.pageObject.LogInObject;
+import stellarburgers.nomoreparties.nomoreparties.pageObject.MainObject;
+import stellarburgers.nomoreparties.nomoreparties.pageObject.RegObject;
+import stellarburgers.nomoreparties.nomoreparties.СheckDone;
 
-import static stellarburgers.nomoreparties.utils.Utils.randomString;
+import static stellarburgers.nomoreparties.nomoreparties.utils.Utils.randomString;
 
 public class RegistrationTest {
 

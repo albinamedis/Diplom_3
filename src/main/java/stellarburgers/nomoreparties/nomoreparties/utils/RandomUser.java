@@ -1,4 +1,4 @@
-package stellarburgers.nomoreparties.utils;
+package stellarburgers.nomoreparties.nomoreparties.utils;
 
 public class RandomUser {
 
