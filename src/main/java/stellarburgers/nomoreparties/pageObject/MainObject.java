@@ -25,8 +25,14 @@ public class MainObject {
     // Переход на главную по лого
     private By buttonLogo = By.xpath(".//div[@class='AppHeader_header__logo__2D0X2']/a[@href='/']");
 
-    // Кнопка "Оформить заказ"
-    private By buttonCreateOrder = By.xpath("");
+    // Кнопка "Булки"
+    private By buttonBulka = By.xpath(".//span[text()='Булки']");
+
+    // Кнопка "Соусы"
+    private By buttonSouce = By.xpath(".//span[text()='Соусы']");
+
+    // Кнопка "Начинка"
+    private By buttonNachinka = By.xpath(".//span[text()='Начинки']");
 
 
 
@@ -61,5 +67,20 @@ public class MainObject {
     // Переход на главную по лого
     public void clickButtonLogo() {
         driver.findElement(buttonLogo).click();
+    }
+
+    // Кнопка "Булки"
+    public void clickButtonBulka() {
+        driver.findElement(buttonBulka).click();
+    }
+
+    // Кнопка "Соусы"
+    public void clickButtonSouce() {
+        driver.findElement(buttonSouce).click();
+    }
+
+    // Кнопка "Начинка"
+    public void clickButtonNachinka() {
+        driver.findElement(buttonNachinka).click();
     }
 }

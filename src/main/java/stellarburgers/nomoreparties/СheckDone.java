@@ -27,6 +27,15 @@ public class СheckDone {
     // проверка текста "Соберите бургер"
     private By textCreateBurger = By.xpath(".//h1[text()='Соберите бургер']");
 
+    // Проверка выбора "Булки"
+    private By textBulki = By.xpath(".//div[contains(@class, 'tab_tab_type_current__2BEPc')]/span[text()='Булки']");
+
+    // Проверка выбора "Соусы"
+    private By textSouce = By.xpath(".//div[contains(@class, 'tab_tab_type_current__2BEPc')]/span[text()='Соусы']");
+
+    // Проверка выбора "Начинки"
+    private By textNachinka = By.xpath(".//div[contains(@class, 'tab_tab_type_current__2BEPc')]/span[text()='Начинки']");
+
     public СheckDone(WebDriver driver) {
         this.driver = driver;
     }
@@ -69,4 +78,15 @@ public class СheckDone {
         assertEquals("Текст 'Соберите бургер' не отобразился", expectedText, actualText);
     }
 
+    public boolean textBulki() {
+        return driver.findElements(textBulki).size() > 0;
+    }
+
+    public boolean textSouce() {
+        return driver.findElements(textSouce).size() > 0;
+    }
+
+    public boolean textNachinka() {
+        return driver.findElements(textNachinka).size() > 0;
+    }
 }
