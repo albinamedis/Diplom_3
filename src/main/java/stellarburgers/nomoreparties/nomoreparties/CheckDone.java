@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class СheckDone {
+public class CheckDone {
     private final WebDriver driver;
 
     // проверка открытия окна для входа
@@ -36,7 +36,7 @@ public class СheckDone {
     // Проверка выбора "Начинки"
     private By textNachinka = By.xpath(".//div[contains(@class, 'tab_tab_type_current__2BEPc')]/span[text()='Начинки']");
 
-    public СheckDone(WebDriver driver) {
+    public CheckDone(WebDriver driver) {
         this.driver = driver;
     }
 

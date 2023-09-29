@@ -10,7 +10,7 @@ import stellarburgers.nomoreparties.nomoreparties.pageObject.LogInObject;
 import stellarburgers.nomoreparties.nomoreparties.pageObject.MainObject;
 import stellarburgers.nomoreparties.nomoreparties.pageObject.ProfileObject;
 import stellarburgers.nomoreparties.nomoreparties.pageObject.RegObject;
-import stellarburgers.nomoreparties.nomoreparties.СheckDone;
+import stellarburgers.nomoreparties.nomoreparties.CheckDone;
 
 import static stellarburgers.nomoreparties.nomoreparties.utils.Utils.randomString;
 
@@ -45,7 +45,7 @@ public class LogOutTest {
         ProfileObject profileObject = new ProfileObject(driver);
         profileObject.clickLogOut();
 
-        СheckDone checkDone = new СheckDone(driver);
+        CheckDone checkDone = new CheckDone(driver);
         checkDone.proverkaTextLogIn();
     }
 

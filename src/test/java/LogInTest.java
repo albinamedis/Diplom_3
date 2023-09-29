@@ -10,7 +10,7 @@ import stellarburgers.nomoreparties.nomoreparties.pageObject.ForgotPasswordObjec
 import stellarburgers.nomoreparties.nomoreparties.pageObject.LogInObject;
 import stellarburgers.nomoreparties.nomoreparties.pageObject.MainObject;
 import stellarburgers.nomoreparties.nomoreparties.pageObject.RegObject;
-import stellarburgers.nomoreparties.nomoreparties.СheckDone;
+import stellarburgers.nomoreparties.nomoreparties.CheckDone;
 
 import java.util.concurrent.TimeUnit;
 
@@ -29,9 +29,6 @@ public class LogInTest {
 
     @Before
     public void setUp() {
-        /*ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        WebDriver driver = new ChromeDriver(options);*/
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
 
@@ -52,7 +49,7 @@ public class LogInTest {
         logInObject.inputLogIn(randomEmail, randomPassword);
         logInObject.clickAuth();
 
-        СheckDone checkDone = new СheckDone(driver);
+        CheckDone checkDone = new CheckDone(driver);
         checkDone.proverkaTextCreateOrder();
     }
 
@@ -67,7 +64,7 @@ public class LogInTest {
         logInObject.inputLogIn(randomEmail, randomPassword);
         logInObject.clickAuth();
 
-        СheckDone checkDone = new СheckDone(driver);
+        CheckDone checkDone = new CheckDone(driver);
         checkDone.proverkaTextCreateOrder();
     }
 
@@ -82,7 +79,7 @@ public class LogInTest {
         logInObject.inputLogIn(randomEmail, randomPassword);
         logInObject.clickAuth();
 
-        СheckDone checkDone = new СheckDone(driver);
+        CheckDone checkDone = new CheckDone(driver);
         checkDone.proverkaTextCreateOrder();
     }
 
@@ -97,7 +94,7 @@ public class LogInTest {
         logInObject.inputLogIn(randomEmail, randomPassword);
         logInObject.clickAuth();
 
-        СheckDone checkDone = new СheckDone(driver);
+        CheckDone checkDone = new CheckDone(driver);
         checkDone.proverkaTextCreateOrder();
     }
 

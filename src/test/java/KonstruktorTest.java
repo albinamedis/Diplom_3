@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import stellarburgers.nomoreparties.nomoreparties.pageObject.MainObject;
-import stellarburgers.nomoreparties.nomoreparties.СheckDone;
+import stellarburgers.nomoreparties.nomoreparties.CheckDone;
 
 public class KonstruktorTest {
 
@@ -23,7 +23,7 @@ public class KonstruktorTest {
         mainObject.clickButtonSouce();
         mainObject.clickButtonBulka();
 
-        СheckDone checkDone = new СheckDone(driver);
+        CheckDone checkDone = new CheckDone(driver);
         Assert.assertTrue("Раздел 'Булки' не выбран", checkDone.textBulki());
     }
 
@@ -33,7 +33,7 @@ public class KonstruktorTest {
         mainObject.openMain();
         mainObject.clickButtonSouce();
 
-        СheckDone checkDone = new СheckDone(driver);
+        CheckDone checkDone = new CheckDone(driver);
         Assert.assertTrue("Раздел 'Соусы' не выбран", checkDone.textSouce());
     }
 
@@ -43,7 +43,7 @@ public class KonstruktorTest {
         mainObject.openMain();
         mainObject.clickButtonNachinka();
 
-        СheckDone checkDone = new СheckDone(driver);
+        CheckDone checkDone = new CheckDone(driver);
         Assert.assertTrue("Раздел 'Начинки' не выбран", checkDone.textNachinka());
     }
 

@@ -9,7 +9,7 @@ import stellarburgers.nomoreparties.nomoreparties.createUser.CreateUser;
 import stellarburgers.nomoreparties.nomoreparties.pageObject.LogInObject;
 import stellarburgers.nomoreparties.nomoreparties.pageObject.MainObject;
 import stellarburgers.nomoreparties.nomoreparties.pageObject.RegObject;
-import stellarburgers.nomoreparties.nomoreparties.СheckDone;
+import stellarburgers.nomoreparties.nomoreparties.CheckDone;
 
 import static stellarburgers.nomoreparties.nomoreparties.utils.Utils.randomString;
 
@@ -42,7 +42,7 @@ public class HeaderClickTest {
         MainObject mainObject = new MainObject(driver);
         mainObject.clickLogLk();
 
-        СheckDone checkDone = new СheckDone(driver);
+        CheckDone checkDone = new CheckDone(driver);
         checkDone.proverkaTextProfile();
     }
 
@@ -53,7 +53,7 @@ public class HeaderClickTest {
         mainObject.openMain();
         mainObject.clickLogLk();
 
-        СheckDone checkDone = new СheckDone(driver);
+        CheckDone checkDone = new CheckDone(driver);
         checkDone.proverkaTextLogIn();
     }
 
@@ -66,7 +66,7 @@ public class HeaderClickTest {
         MainObject mainObject = new MainObject(driver);
         mainObject.clickButtonKonstruktor();
 
-        СheckDone checkDone = new СheckDone(driver);
+        CheckDone checkDone = new CheckDone(driver);
         checkDone.proverkaCreateBurger();
     }
 
@@ -93,7 +93,7 @@ public class HeaderClickTest {
         MainObject mainObject = new MainObject(driver);
         mainObject.clickButtonLogo();
 
-        СheckDone checkDone = new СheckDone(driver);
+        CheckDone checkDone = new CheckDone(driver);
         checkDone.proverkaCreateBurger();
     }
 

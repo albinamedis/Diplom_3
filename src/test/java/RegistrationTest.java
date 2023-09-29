@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import stellarburgers.nomoreparties.nomoreparties.pageObject.LogInObject;
 import stellarburgers.nomoreparties.nomoreparties.pageObject.MainObject;
 import stellarburgers.nomoreparties.nomoreparties.pageObject.RegObject;
-import stellarburgers.nomoreparties.nomoreparties.СheckDone;
+import stellarburgers.nomoreparties.nomoreparties.CheckDone;
 
 import static stellarburgers.nomoreparties.nomoreparties.utils.Utils.randomString;
 
@@ -39,7 +39,7 @@ public class RegistrationTest {
         regObject.inputReg(randomName, randomEmail, randomPassword);
         regObject.clickButtonReg();
 
-        СheckDone checkDone = new СheckDone(driver);
+        CheckDone checkDone = new CheckDone(driver);
         Assert.assertTrue("Не открылось окно для входа после регистрации", checkDone.openWindowWithLogIn());
     }
 
@@ -58,7 +58,7 @@ public class RegistrationTest {
         regObject.inputReg(randomName, randomEmail, randomPasswordNoValid);
         regObject.clickButtonReg();
 
-        СheckDone checkDone = new СheckDone(driver);
+        CheckDone checkDone = new CheckDone(driver);
         Assert.assertTrue("Не отобразилась валидация 'Некорректный пароль'", checkDone.textNoValidPassword());
     }
 

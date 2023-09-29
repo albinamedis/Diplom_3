@@ -18,11 +18,6 @@ public class CreateUserApiTest {
         CreateUser createUser = new CreateUser();
         Response response = createUser.create(user);
         String authToken = response.path("accessToken");
-      /*  if (response.statusCode() != 200) {
-            System.err.println("HTTP Status Code: " + response.statusCode());
-            System.err.println("Response Body: " + response.body().asString());
-        }*/
-       // response.then().assertThat().body("success", equalTo(true));
         Response responseDel = createUser.delete(authToken);
         response.then().assertThat().body("success", equalTo(true));
     }
